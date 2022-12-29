@@ -1,5 +1,5 @@
 <?php
-include_once "base_test.php";
+include "base_test.php";
 
 if(!empty($_FILES['img']['tmp_name'])){
     move_uploaded_file($_FILES['img']['tmp_name'],"../upload/".$_FILES['img']['name']);

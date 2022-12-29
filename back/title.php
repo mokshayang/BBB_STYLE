@@ -1,9 +1,9 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">網站標題管理</p>
     <?php
-        dd($_POST);//$_POST['name']，兩筆資料，有相同的鑑值 ['name']
+        // dd($_POST);//$_POST['name']，兩筆資料，有相同的鑑值 ['name']
     ?>
-    <form method="post" action="?do=tii">
+    <form method="post" action="./api/edit_title.php">
         <table width="100%">
             <tbody>
                 <tr class="yel">
@@ -17,6 +17,7 @@
                     $rows = $Title->all();
                     foreach ($rows as $row) {
                         $checked=($row['sh']==1)?"checked":"";
+                        // echo $checked;
                 ?>
                 <tr>
                     <td width="45%">
@@ -26,7 +27,7 @@
                         <input type="text" name="text[]" value="<?=$row['text'];?>">
                     </td>
                     <td width="7%">
-                        <input type="radio" name="sh" value="<?=$row['id'];?>" >
+                        <input type="radio" name="sh" value="<?=$row['id'];?>" <?=$checked?> >
                     </td>
                     <td width="7%">
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>" >
@@ -34,10 +35,11 @@
                     <td>
                         <input type="button" value="更新圖片">
                         <!-- N筆資料 一起傳送，但redio 與 checkbox 無法辨別 所以傳送隱藏欄位 id 與其對應共同的索引-->
-                        <input type="hidden" name="id" value="<?=$row['id'];?>"> 
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>"> 
                     </td>
                 </tr>
-                <?php } ?>
+                
+                <?php }  ?>
             </tbody>
         </table>
         <table style="margin-top:40px; width:70%;">
