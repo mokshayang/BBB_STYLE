@@ -1,7 +1,6 @@
 <?php
 session_start();
 date_default_timezone_set("Asia/Taipei");
-
 class DB
 {
     protected $table;
