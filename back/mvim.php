@@ -20,7 +20,7 @@
                 ?>
                     <tr>
                         <td >
-                            <img src="./upload/<?= $row['img'] ?>" style="width:150px; height:80px;" alt="">
+                            <img src="./upload/<?= $row['img'] ?>" style="width:150px; height:68px;" alt="">
                         </td>
                         <td >
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= $checked ?>>
