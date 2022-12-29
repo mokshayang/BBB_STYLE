@@ -30,10 +30,10 @@ include_once "base_test.php";
 // }
 
 foreach ($_POST['id'] as $idx => $id) {
-    if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
+    if (isset($_POST['del']) && in_array($id, $_POST['del'])) {//先刪除id[單筆] 比對 del=['','',''。。。。]
         $Title->del($id);
     } else {
-        $row = $Title->find($id);
+        $row = $Title->find($id);//db = from id
         $row['text'] = $_POST['text'][$idx];
         $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
 
