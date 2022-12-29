@@ -4,49 +4,51 @@ include_once "base_test.php";
 //要丟改 del sh text
 
 // foreach($_POST['id'] as $idx=>$id){
-//     $row = $Title->find($id);
+//     $row = $$table->find($id);
 //     $row['text']=$_POST['text'][$idx];
-//     $Title->save($row);
+//     $$table->save($row);
 // }
-// $row1 = $Title->find($_POST['sh']);
+// $row1 = $$table->find($_POST['sh']);
 
 // foreach($_POST['id'] as $id) {
-//     $row2=$Title->find($id);
+//     $row2=$$table->find($id);
 //     $row2['sh']=0;
-//     $Title->save($row2);
+//     $$table->save($row2);
 // }
 
 // $row1['sh']=1;
-// $Title->save($row1);
+// $$table->save($row1);
 
 // foreach($_POST['del'] as $id){
-//     $Title->del($id);
+//     $$table->del($id);
 // }
 
-// if(empty($Title->find(['sh'=>1]))){
-//     $radio = $Title->min('id');
-//     $Title->save(['sh'=>1,'id'=>$radio]);
+// if(empty($$table->find(['sh'=>1]))){
+//     $radio = $$table->min('id');
+//     $$table->save(['sh'=>1,'id'=>$radio]);
 //     // echo $raido;
 // }
 
+// ['sh'] and  ['']
+$table=$_POST['table'];
 foreach ($_POST['id'] as $idx => $id) {
     if (isset($_POST['del']) && in_array($id, $_POST['del'])) {//先刪除id[單筆] 比對 del=['','',''。。。。]
-        $Title->del($id);
+        $$table->del($id);
     } else {
-        $row = $Title->find($id);//db = from id
-        $row['text'] = $_POST['text'][$idx];
+        $row = $$table->find($id);//db = from in(ex> : 3 , 6, 9 ,11 )
+        $row['text'] = $_POST['text'][$idx];//updata 賦值;
         $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
 
-        $Title->save($row);
+        $$table->save($row);
     }
 }
 
 //資料修改
-if (!empty($Title->find(['sh' => 0]))) {
-    if (empty($Title->find(['sh' => 1]))) {
-        $radio = $Title->min('id');
-        $Title->save(['sh' => 1, 'id' => $radio]);
+if (!empty($$table->find(['sh' => 0]))) {
+    if (empty($$table->find(['sh' => 1]))) {
+        $radio = $$table->min('id');
+        $$table->save(['sh' => 1, 'id' => $radio]);
     }
 }
 
-to("../back.php?do=title");
+to("../back.php?do=".lcfirst($table));

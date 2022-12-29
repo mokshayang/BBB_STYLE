@@ -123,6 +123,15 @@ class DB
 // // $math = $test->avg('id', ['id'=>2]," order by id" );
 // $math = $test->max('id',['bottom' => 'test'], "in(2,3)");
 // dd($math);
+
+// switch($_POST['table']){
+//     case "Title";
+//     $db=new DB("title");
+//     break;
+// }
+
+// dd(${$_POST['table']});
+
 $Bottom=new DB('bottom');
 $Title=new DB('title');
 $Ad=new DB('ad');

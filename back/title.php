@@ -3,7 +3,7 @@
     <?php
     // dd($_POST);//$_POST['name']，兩筆資料，有相同的鑑值 ['name']
     ?>
-    <form method="post" action="./api/edit_title.php">
+    <form method="post" action="./api/edit.php">
         <table width="100%">
             <tbody>
                 <tr class="yel">
@@ -48,7 +48,11 @@
                     <td width="200px">
                         <input type="button" onclick="op('#cover','#cvr','./modal/title.php')" value="新增網站標題圖片">
                     </td>
-                    <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
+                    <td class="cent">
+                        <input type="hidden" name="table" value="Title">
+                        <input type="submit" value="修改確定">
+                        <input type="reset" value="重置">
+                    </td>
                 </tr>
             </tbody>
         </table>

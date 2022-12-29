@@ -28,20 +28,32 @@ include_once "base_test.php";
 //     $Title->save(['sh'=>1,'id'=>$radio]);
 //     // echo $raido;
 // }
-$table=$_POST['table'];
+
+$table = $_POST['table'];
+dd($$table);
+dd($_POST);
 foreach ($_POST['id'] as $idx => $id) {
     if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
-        $$table->del($id);
+        $$table->del($id);//$$table === $Title ....form 過來的 名稱 $Title 以建立在 base_test/.php
     } else {
-        $row = $$table->find($id);//單筆近each
-        $row['text'] = $_POST['text'][$idx];//db[text] = form 過來的
-        $row['sh'] = (isset($_POST['sh']) && in_array($id,$_POST['sh'])) ? 1 : 0;
+        $row = $$table->find($id); //單筆近each
+        switch ($table) {
+            case "Title":
+                $row['text'] = $_POST['text'][$idx]; //db[text] = form 過來的
+                $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
+                break;
+            case "Admin":
 
-        // echo $row['text'];
-        // echo "<br>";
-        // echo $_POST['text'][$idx];
-        // echo "<br>";
-        $$table->save($row);
+                break;
+            case "Menu":
+
+                break;
+            default:
+                $row['text'] = $_POST['text'][$idx]; //db[text] = form 過來的
+                $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
+        }
+
+  
     }
 }
 
@@ -53,4 +65,4 @@ foreach ($_POST['id'] as $idx => $id) {
 //     }
 // }
 
-to("../back.php?do=".lcfirst($table));
+// to("../back.php?do=" . lcfirst($table));
