@@ -2,16 +2,19 @@
 <hr>
 <form action="./api/add.php" method="post" enctype="multipart/form-data">
     <table>
+      
         <tr>
-            <td>標題區圖片 :</td>
+            <td>新增帳號 :</td>
             <td>
-                <input type="file" name="img">
+                <input type="text" name="acc">
             </td>
-        </tr>
-        <tr>
-            <td>標題區替代文字 :</td>
+            <td>新增密碼 : </td>
             <td>
-                <input type="text" name="text">
+                <input type="password" name="pw">
+            </td>
+            <td>確認帳號 : </td>
+            <td>
+                <input type="password" name="pw2">
             </td>
         </tr>
     </table>

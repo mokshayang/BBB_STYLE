@@ -13,7 +13,7 @@ if(!empty($_FILES['img']['tmp_name'])){
 switch($table){
     case "Admin":
         $data['acc']=$_POST['acc'];
-        $date['pw']=$_POST['pw'];
+        $data['pw']=$_POST['pw'];
         break;
     case "Menu":
 
