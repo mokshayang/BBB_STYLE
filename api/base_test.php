@@ -84,7 +84,7 @@ class DB
             $tmp = $this->arrayToSqlArray($array);
             $sql = "update $this->table set ";
             $sql .= join(",", $tmp);
-            $sql .= "where `id` =$id";
+            $sql .= " where `id` =$id";
         } else {
             $cols = array_keys($array);
             $sql = "insert into $this->table (`" . join("`,`", $cols) . "`)
@@ -125,6 +125,7 @@ class DB
 // dd($math);
 $Bottom=new DB('bottom');
 $Title=new DB('title');
+$Ad=new DB('ad');
 function dd($array)
 {
     echo "<pre>";

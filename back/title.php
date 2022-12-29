@@ -33,7 +33,7 @@
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>" >
                     </td>
                     <td>
-                        <input type="button" value="更新圖片">
+                        <input type="button" value="更新圖片" onclick="op('#cover','#cvr','./modal/upload_title.php?id=<?=$row['id'];?>')" >
                         <!-- N筆資料 一起傳送，但redio 與 checkbox 無法辨別 所以傳送隱藏欄位 id 與其對應共同的索引-->
                         <input type="hidden" name="id[]" value="<?=$row['id'];?>"> 
                     </td>

@@ -31,22 +31,26 @@ include_once "base_test.php";
 
 foreach ($_POST['id'] as $idx => $id) {
     if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
-        $Title->del($id);
+        $Ad->del($id);
     } else {
-        $row = $Title->find($id);
-        $row['text'] = $_POST['text'][$idx];
-        $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
+        $row = $Ad->find($id);//單筆近each
+        $row['text'] = $_POST['text'][$idx];//db[text] = form 過來的
+        $row['sh'] = (isset($_POST['sh']) && in_array($id,$_POST['sh'])) ? 1 : 0;
 
-        $Title->save($row);
+        // echo $row['text'];
+        // echo "<br>";
+        // echo $_POST['text'][$idx];
+        // echo "<br>";
+        // $Ad->save($row);
     }
 }
 
 //資料修改
-if (!empty($Title->find(['sh' => 0]))) {
-    if (empty($Title->find(['sh' => 1]))) {
-        $radio = $Title->min('id');
-        $Title->save(['sh' => 1, 'id' => $radio]);
-    }
-}
+// if (!empty($Title->find(['sh' => 0]))) {
+//     if (empty($Title->find(['sh' => 1]))) {
+//         $radio = $Title->min('id');
+//         $Title->save(['sh' => 1, 'id' => $radio]);
+//     }
+// }
 
-to("../back.php?do=title");
+to("../back.php?do=ad");
