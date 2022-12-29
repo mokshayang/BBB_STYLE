@@ -1,7 +1,7 @@
 <?php
 include "base_test.php";
-// echo $_POST['id'];
 $table=$_POST['table'];
+dd($$table);
 $row=$$table->find($_POST['id']);
 
 
