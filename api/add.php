@@ -11,10 +11,11 @@ if(!empty($_FILES['img']['tmp_name'])){
 }
 
 switch($table){
-    case "admin":
-
+    case "Admin":
+        $data['acc']=$_POST['acc'];
+        $date['pw']=$_POST['pw'];
         break;
-    case "menu":
+    case "Menu":
 
         break;
         default:

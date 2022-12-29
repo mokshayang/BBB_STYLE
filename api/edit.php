@@ -43,7 +43,8 @@ foreach ($_POST['id'] as $idx => $id) {
                 $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
                 break;
             case "Admin":
-
+                $row['acc']=$_POST['acc'];
+                $row['pw']=$_POST['pw'];
                 break;
             case "Menu":
 

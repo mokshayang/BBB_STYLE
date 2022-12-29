@@ -136,6 +136,7 @@ $Title=new DB('title');
 $Ad=new DB('ad');
 $Mvim=new DB('mvim');
 $Image=new DB('image');
+$Admin=new DB('admin');
 function dd($array)
 {
     echo "<pre>";
