@@ -58,11 +58,11 @@ foreach ($_POST['id'] as $idx => $id) {
 }
 
 //資料修改
-// if (!empty($Title->find(['sh' => 0]))) {
-//     if (empty($Title->find(['sh' => 1]))) {
-//         $radio = $Title->min('id');
-//         $Title->save(['sh' => 1, 'id' => $radio]);
-//     }
-// }
+if (!empty($Title->find(['sh' => 0]))) {
+    if (empty($Title->find(['sh' => 1]))) {
+        $radio = $Title->min('id');
+        $Title->save(['sh' => 1, 'id' => $radio]);
+    }
+}
 
-// to("../back.php?do=" . lcfirst($table));
+to("../back.php?do=" . lcfirst($table));
