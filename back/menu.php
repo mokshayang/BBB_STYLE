@@ -17,6 +17,7 @@
                 </tr>
                 <?php
                 $rows = $Menu->all(['parent'=>0]);//只顯示parent==0的
+                dd($rows);
                 foreach ($rows as $row) {
                     $checked = ($row['sh']==1)?"checked":"";
                 ?>
@@ -27,7 +28,7 @@
                         <td >
                             <input type="text" name="href[]" value="<?= $row['href']; ?>" style="width:95">
                         </td>
-                        <td></td>
+                        <td><?=$Menu->count(['parent'=>$row['id']])?></td>
                         <td >
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=$checked;?>>
                         </td>
@@ -36,8 +37,8 @@
                         </td>
                         <td >
                             <input type="button" 
-                                    value="編輯次選單";
-                            onclick="op('#cover','#cvr','./modal/submenu.php')" value="新增帳號">
+                                   value="編輯次選單";
+                            onclick="op('#cover','#cvr','./modal/submenu.php?id=<?=$row['id']?>')" value="新增帳號">
                         </td>
                         <td>
                             <input type="hidden" name="id[]" value="<?= $row['id']; ?>">

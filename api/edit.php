@@ -35,6 +35,9 @@ dd($_POST);
 foreach ($_POST['id'] as $idx => $id) {
     if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
         $$table->del($id);//$$table === $Title ....form 過來的 名稱 $Title 以建立在 base_test/.php
+        if($table=="Menu"){
+            $Menu->del(['parent'=>$id]);
+        }
     } else {
         $row = $$table->find($id); //單筆近each
         switch ($table) {
