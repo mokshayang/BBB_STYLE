@@ -149,3 +149,10 @@ function dd($array)
 function to($url){
    header("location:".$url);
 }
+if(!isset($_SESSION['visit'])){
+    $_SESSION['visit']=1;
+    $total=$Total->find(1);
+    $total['total']++;
+    $Total->save($total);
+}
+ 
