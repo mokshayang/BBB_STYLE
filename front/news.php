@@ -45,7 +45,7 @@
 		for($i=1;$i<=$pages;$i++){
 			$size=($i==$now)?"36px":"30px";
 		?>
-		<a class="bl" style="font-size:30px;" href="?do=news&p=<?=($now-1)?>">&lt;&nbsp;</a>
+		<a class="bl" style="font-size:30px;" href="?do=news&p=<?=$i?>">&nbsp;<?=$i?>&nbsp;</a>
 		<?php }	?>
 
 		<?php
