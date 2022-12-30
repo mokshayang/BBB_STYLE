@@ -38,24 +38,20 @@
 		<?php
 		if(($now-1)>0){
 		?>
-			<a class="bl" style="font-size:30px;" href="?do=meg&p=<?=($now-1)?>">&lt;&nbsp;</a>
+			<a class="bl" style="font-size:30px;" href="?do=news&p=<?=($now-1)?>">&lt;&nbsp;</a>
 		<?php }	?>
-
 
 		<?php
 		for($i=1;$i<=$pages;$i++){
 			$size=($i==$now)?"36px":"30px";
 		?>
-		<a class="bl" style="font-size:30px;" href="?do=meg&p=<?=($now-1)?>">&lt;&nbsp;</a>
-
-						
+		<a class="bl" style="font-size:30px;" href="?do=news&p=<?=($now-1)?>">&lt;&nbsp;</a>
 		<?php }	?>
-
 
 		<?php
 		if(($now+1)<=$pages){
 		?>
-		<a class="bl" style="font-size:30px;" href="?do=meg&p=<?=($now+1)?>">&nbsp;&gt;</a>
+		<a class="bl" style="font-size:30px;" href="?do=news&p=<?=($now+1)?>">&nbsp;&gt;</a>
 		<?php }	?>
 	</div>
 </div>
