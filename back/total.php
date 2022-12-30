@@ -1,4 +1,4 @@
-total.php
+
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">進站總人數管理</p>
     <?php
