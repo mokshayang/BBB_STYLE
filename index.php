@@ -23,8 +23,8 @@ include_once "./api/base_test.php";
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<a title="" href="index.php">
-			<div class="ti" style="background:url('use/'); background-size:cover;"></div>
+		<a title="<?= $Title->find(['sh' => 1])['text']; ?>" href="index.php">
+			<div class="ti" style="background:url('upload/<?= $Title->find(['sh' => 1])['img']; ?>'); background-size:cover;"></div>
 			<!--標題-->
 		</a>
 		<div id="ms">
@@ -34,8 +34,7 @@ include_once "./api/base_test.php";
 					<span class="t botli">主選單區</span>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 :
-						1 </span>
+					<span class="t"> <span class="t">進站總人數 : <?= $Total->find(1)['total'];?></span>
 				</div>
 			</div>
 			<?php
@@ -46,9 +45,9 @@ include_once "./api/base_test.php";
 			if (file_exists($file)) {
 				include_once $file;
 			} else {
-				include_once "./front/home.php"; 
+				include_once "./front/home.php";
 			}
-			
+
 			?>
 
 			<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
@@ -98,7 +97,7 @@ include_once "./api/base_test.php";
 		<div style="clear:both;"></div>
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
 			<span class="t" style="line-height:123px;">
-			<?= $Bottom->find(1)['bottom'];?>	</span>
+				<?= $Bottom->find(1)['bottom']; ?> </span>
 		</div>
 	</div>
 
