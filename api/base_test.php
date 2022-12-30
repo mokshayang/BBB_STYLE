@@ -139,6 +139,7 @@ $Image=new DB('image');
 $Admin=new DB('admin');
 $News=new DB('news');
 $Menu=new DB('menu');
+$Total=new DB('total');
 function dd($array)
 {
     echo "<pre>";
