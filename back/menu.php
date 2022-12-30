@@ -16,8 +16,9 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows = $Menu->all();
+                $rows = $Menu->all(['parent'=>0]);//只顯示parent==0的
                 foreach ($rows as $row) {
+                    $checked = ($row['sh']==1)?"checked":"";
                 ?>
                     <tr>
                         <td >
@@ -28,7 +29,7 @@
                         </td>
                         <td></td>
                         <td >
-                            <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>">
+                            <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=$checked;?>>
                         </td>
                         <td >
                             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
@@ -50,7 +51,7 @@
             <tbody>
                 <tr>
                     <td width="200px">
-                        <input type="button" onclick="op('#cover','#cvr','./modal/Menu.php')" value="新增主選單">
+                        <input type="button" onclick="op('#cover','#cvr','./modal/menu.php')" value="新增主選單">
                     </td>
                     <td class="cent">
                         <input type="hidden" name="table" value="Menu">
